@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vibrate API</title>
+</head>
+<body>
+    <h1>
+        Click on the screen to vibrate
+    </h1>
+    <script>
+        navigator.vibrate = navigator.vibrate || navigator.navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+        //To check for various devices whether vibrate exists or not
+
+        if (navigator.vibrate) {
+            document.body.addEventListener('click', function(ev){ //adding click listner to body
+                    console.log('body clicked. Time to shake.');
+                    //navigator.vibrate(2000); vibrates for 2 seconds
+                    //navigator.vibrate([300, 200, 100]); values are in milliseconds, this array takes params as 'on' 'off' so here the 300 is on 200 is off and 100 is on
+                    //navigator.vibrate(0); no vibrate
+                    //Check out the super mario theme create by @prof3ssorSt3v3
+                    navigator.vibrate([125,75,125,275,200,275,125,75,125,275,200,600,200,600]);
+                });
+        }
+    </script>
+</body>
+</html>
